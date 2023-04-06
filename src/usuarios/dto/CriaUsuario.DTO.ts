@@ -1,4 +1,5 @@
 import { IsEmail, IsNotEmpty, MinLength } from "class-validator";
+import { EmailUnico } from "../validacao/email-unico-validator";
 
 export class CriaUsuarioDTO {
 
@@ -6,6 +7,7 @@ export class CriaUsuarioDTO {
     nome: string;
 
     @IsEmail(undefined, { message: "O email deve ser um email" })
+    @EmailUnico({ message: "Já existe um usuário com esse email" })
     email: string;
 
     @MinLength(6, { message: "A senha deve ter pelo menos 6 caracteres" })
