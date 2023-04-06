@@ -5,7 +5,7 @@ import { CriaProdutoDTO } from "./dto/CriaProduto.DTO";
 @Controller('/produtos')
 export class ProdutoController {
 
-    private produtoRepository = new ProdutoRepository()
+    constructor(private produtoRepository: ProdutoRepository) { }
 
     @Post()
     async criaProduto(@Body() dadosDoProduto: CriaProdutoDTO) {
