@@ -1,21 +1,21 @@
 import { Body, Controller, Get, Post } from "@nestjs/common";
-import { UsuarioRepository } from "./produto.repository";
+import { ProdutoRepository } from "./produto.repository";
 
-@Controller('/usuarios')
-export class UsuarioController {
+@Controller('/produtos')
+export class ProdutoController {
 
-    private usuarioRepository = new UsuarioRepository()
+    private produtoRepository = new ProdutoRepository()
 
     @Post()
-    async criaUsuario(@Body() dadosDoUsuario) {
+    async criaProduto(@Body() dadosDoProduto) {
 
-        this.usuarioRepository.salvar(dadosDoUsuario);
-        return dadosDoUsuario;
+        this.produtoRepository.salvar(dadosDoProduto);
+        return dadosDoProduto;
     }
 
     @Get()
-    async listaUsuarios() {
-        return this.usuarioRepository.listar();
+    async listaProdutos() {
+        return this.produtoRepository.listar();
     }
 
 }

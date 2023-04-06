@@ -1,14 +1,14 @@
 import { Injectable } from "@nestjs/common";
 
 @Injectable()
-export class UsuarioRepository {
-    private usuarios = [];
+export class ProdutoRepository {
+    private produtos = [];
 
-    async salvar(usuario) {
-        this.usuarios.push(usuario);
+    async salvar(produto) {
+        this.produtos.push(produto);
     }
 
     async listar() {
-        return this.usuarios;
+        return this.produtos;
     }
 }
